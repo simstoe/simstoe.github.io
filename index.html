@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <title>simstoe - portfolio</title>
+</head>
+<body>
+  <nav class="animate__animated">
+    <h1>simstoe</h1>
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+    <ul id="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero animate__animated animate__fadeInDown">
+    <div class="hero-content">
+      <h2>Hey, I'm Simon Stögerer</h2>
+      <p>A passionate developer from Austria</p>
+    </div>
+  </section>
+
+  <section id="about" class="about animate__animated">
+    <div class="about-content">
+      <h2>About Me</h2>
+      <p>
+        I'm Simon Stögerer, a passionate full-stack developer and computer science student from Austria.
+        I enjoy building clean, useful, and creative digital products – whether it's a Minecraft plugin,
+        a portfolio website, or a full SaaS tool.
+      </p>
+      <p>
+        My focus is on modern web technologies like <strong>Angular</strong>, <strong>Spring Boot</strong>,
+        and <strong>Java</strong>, but I also love experimenting with animations, UI/UX, and writing clean code.
+      </p>
+      <p>
+        Besides coding, I enjoy tech startups, teaching others, and turning ideas into reality.
+      </p>
+    </div>
+  </section>
+
+  <section class="tech-stack animate__animated">
+    <div class="tech-container">
+      <img src="icons/java.png" alt="Java" />
+      <img src="icons/spring.png" alt="Spring Boot" />
+      <img src="icons/angular.png" alt="Angular" />
+      <img src="icons/typescript.png" alt="TypeScript" />
+      <img src="icons/docker.png" alt="Docker" />
+      <img src="icons/mysql.png" alt="MySQL" />
+    </div>
+  </section>
+
+  <section id="projects" class="projects-alt">
+    <h2 class="section-title">Projects</h2>
+
+    <div class="project-row animate__animated">
+      <div class="project-text">
+        <h3>TaskFlow</h3>
+        <p>A fast, lightweight alternative to Jira. Built with Angular, Spring Boot and love.</p>
+        <a href="#">View Project</a>
+      </div>
+      <div class="project-img">
+        <img src="https://source.unsplash.com/600x400/?dashboard,ui" alt="TaskFlow Screenshot">
+      </div>
+    </div>
+
+    <div class="project-row reverse animate__animated">
+      <div class="project-text">
+        <h3>CityBuild Minecraft</h3>
+        <p>A professional Minecraft server with a fully custom Cloud, Clan System, Support UI, and Map Upgrades.</p>
+        <a href="#">View Details</a>
+      </div>
+      <div class="project-img">
+        <img src="https://source.unsplash.com/600x400/?minecraft,server" alt="CityBuild Screenshot">
+      </div>
+    </div>
+
+    <div class="project-row animate__animated">
+      <div class="project-text">
+        <h3>Interactive Design Patterns Book</h3>
+        <p>Learn Java patterns with an Angular-powered interactive book. Live code examples and deep insights.</p>
+        <a href="#">Read It</a>
+      </div>
+      <div class="project-img">
+        <img src="https://source.unsplash.com/600x400/?book,code" alt="Book Preview">
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer animate__animated">
+    <div class="footer-content">
+      <p>&copy; 2025 Simon Stögerer. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="https://github.com/simstoe" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/simstoe" target="_blank">LinkedIn</a>
+        <a href="imprint.html">Imprint</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    const toggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+    toggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+
+    // Animate on Scroll
+    const animateOnScroll = () => {
+      const elements = document.querySelectorAll(".animate__animated");
+      elements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add("animate__fadeInUp");
+        }
+      });
+    };
+
+    window.addEventListener("scroll", animateOnScroll);
+    window.addEventListener("DOMContentLoaded", animateOnScroll);
+  </script>
+</body>
+</html>
