@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: Build Angular App
-        run: npm run build -- --base-href=/simstoe.github.io/
+        run: npm run build -- --base-href /
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
