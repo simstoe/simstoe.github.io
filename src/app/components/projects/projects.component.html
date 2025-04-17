@@ -1,0 +1,31 @@
+<section id="projects" class="py-20 px-6 max-w-6xl mx-auto">
+    <h2 class="text-3xl text-center font-bold mb-16 gsap-title">Projects</h2>
+  
+    <div
+      class="flex flex-col md:flex-row items-center mb-20 gap-10 project"
+      *ngFor="let project of projectList; let i = index"
+    >
+      <div class="flex-1 text-center lg:text-left">
+        <h3 class="text-xl font-semibold mb-3">{{ project.title }}</h3>
+        <p class="text-sm text-gray-700 mb-4">{{ project.description }}</p>
+        <a
+          *ngIf="project.link"
+          [href]="project.link"
+          target="_blank"
+          class="text-[#334b7c] font-bold border-b-2 border-transparent relative"
+        >
+          View Project
+        </a>
+      </div>
+      <div class="flex-1 text-center flex justify-center">
+        <a [href]="project.link" target="_blank">
+          <img
+            [src]="project.imageUrl"
+            [alt]="project.title + ' Screenshot'"
+            class="rounded-xl shadow-lg hover:scale-105 transition-transform duration-300 w-10/12 project-image"
+          />
+        </a>
+      </div>
+    </div>
+  </section>
+  

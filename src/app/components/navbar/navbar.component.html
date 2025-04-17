@@ -1,0 +1,16 @@
+<nav #navbar class="w-full px-6 py-4 flex justify-between items-center">
+    <h1 class="text-sm font-bold logo">simstoe</h1>
+    <div class="md:hidden text-3xl cursor-pointer burger" id="menu-toggle" (click)="toggleMenu()">☰</div>
+    <ul id="nav-links" class="hidden md:flex space-x-6 text-sm font-medium nav-links">
+        <li><a href="#" class="relative">Home</a></li>
+        <li><a href="#about" class="relative">About</a></li>
+        <li><a href="#projects" class="relative">Projects</a></li>
+    </ul>
+
+    <ul [class.hidden]="isMenuOpen"
+        class="mobile-nav flex-col absolute top-[70px] right-[50px] bg-white shadow-lg rounded-xl p-5 text-sm font-medium z-50 md:hidden space-y-3">
+        <li><a href="#" class="hover:underline">Home</a></li>
+        <li><a href="#about" class="hover:underline">About</a></li>
+        <li><a href="#projects" class="hover:underline">Projects</a></li>
+    </ul>
+</nav>
