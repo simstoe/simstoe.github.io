@@ -1,9 +1,9 @@
-name: Deploy to GitHub Pages
+name: Deploy Angular App to GitHub Pages
 
 on:
   push:
     branches:
-      - master  # oder master, je nachdem
+      - master
 
 jobs:
   build-and-deploy:
@@ -19,14 +19,13 @@ jobs:
           node-version: 18
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build Angular App
-        run: npm run build -- --base-href /
+        run: npm run build -- --configuration production --base-href=/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
           publish_dir: ./dist/browser
-
