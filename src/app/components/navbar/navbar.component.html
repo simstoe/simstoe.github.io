@@ -2,9 +2,9 @@
     <h1 class="text-sm font-bold logo">simstoe</h1>
     <div class="md:hidden text-3xl cursor-pointer burger" id="menu-toggle" (click)="toggleMenu()">☰</div>
     <ul id="nav-links" class="hidden md:flex space-x-6 text-sm font-medium nav-links">
-        <li><a href="#" class="relative">Home</a></li>
-        <li><a href="#about" class="relative">About</a></li>
-        <li><a href="#projects" class="relative">Projects</a></li>
+        <li><app-link href="#" class="relative">Home</app-link></li>
+        <li><app-link href="#about" class="relative">About</app-link></li>
+        <li><app-link href="#projects" class="relative">Projects</app-link></li>
     </ul>
 
     <ul [class.hidden]="isMenuOpen"

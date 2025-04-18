@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { gsap } from 'gsap';
 import { AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LinkComponent } from "../../elements/link/link.component";
 
 @Component({
   selector: 'app-navbar',
-  imports: [CommonModule],
+  imports: [CommonModule, LinkComponent],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
