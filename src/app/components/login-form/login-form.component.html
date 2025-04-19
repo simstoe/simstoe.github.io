@@ -1,0 +1,37 @@
+<div #formWrapper class="w-full max-w-2xl bg-white rounded-2xl px-12 py-12 border border-gray-200 flex flex-col">
+
+  <h1 #title class="text-2xl font-bold -mt-3 mb-8 text-center px-32">Admin Login</h1>
+
+  <form (ngSubmit)="submitForm()" #loginForm="ngForm">
+    <div #group1 class="mb-6">
+      <label for="emailInput" class="block mb-2 text-sm font-medium text-gray-900">E-Mail</label>
+      <input type="email" id="emailInput" [(ngModel)]="email" name="email" required #emailModel="ngModel"
+        placeholder="Enter your email" class="bg-gray-50 border text-gray-900 text-sm rounded-lg block w-full p-2.5
+               focus:outline-none focus:ring-1
+               transition-all duration-150 ease-in-out" [ngClass]="{
+          'border-red-500 ring-red-300': emailModel.invalid && emailModel.touched,
+          'border-green-500 ring-green-300': emailModel.valid && emailModel.touched,
+          'border-gray-300': !emailModel.touched
+        }" />
+    </div>
+
+    <div #group2 class="mb-12">
+      <label for="passwordInput" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
+      <input type="password" id="passwordInput" [(ngModel)]="password" name="password" required #passwordModel="ngModel"
+        placeholder="Enter your password" class="bg-gray-50 border text-gray-900 text-sm rounded-lg block w-full p-2.5
+               focus:outline-none focus:ring-1
+               transition-all duration-150 ease-in-out" [ngClass]="{
+          'border-red-500 ring-red-300': passwordModel.invalid && passwordModel.touched,
+          'border-green-500 ring-green-300': passwordModel.valid && passwordModel.touched,
+          'border-gray-300': !passwordModel.touched
+        }" />
+    </div>
+
+
+    <button #submitButton type="submit" [disabled]="loginForm.invalid"
+      class="w-full text-white bg-[#334b7c] focus:outline-none focus:ring-[#334b7c]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center cursor-pointer">
+      Login
+    </button>
+
+  </form>
+</div>
