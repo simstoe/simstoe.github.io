@@ -30,4 +30,44 @@ export class SupabaseService {
   async signOut() {
     return this.supabase.auth.signOut();
   }
+
+  async trackVisit() {
+    const { error } = await this.supabase.from('visits').insert([{
+      user_agent: navigator.userAgent
+    }]);
+  
+    if (error) {
+      console.error('Visit konnte nicht gespeichert werden:', error.message);
+    }
+  }
+  
+
+  async getVisitsGrouped(type: 'day' | 'week' | 'month'): Promise<{ label: string; count: number }[]> {
+    let groupBy = '';
+    let format = '';
+  
+    switch (type) {
+      case 'day':
+        groupBy = 'hour';
+        format = 'HH24';
+        break;
+      case 'week':
+        groupBy = 'day';
+        format = 'Dy';
+        break;
+      case 'month':
+        groupBy = 'day';
+        format = 'DD.MM.';
+        break;
+    }
+  
+    const { data, error } = await this.supabase
+      .rpc('get_visit_stats', { group_by: groupBy, format_string: format });
+
+    console.log(data);
+    
+  
+    return data ?? [];
+  }
+  
 }
